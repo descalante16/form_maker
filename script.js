@@ -35,11 +35,49 @@ const appendButton = (label = "No label") => {
 }
 
 const appendRadio = (label = "No label") => {
+
     let el = document.createElement('input')
 
     el.setAttribute('type', 'radio')
+    el.setAttribute('name', 'radio-group')
     el.setAttribute('class', 'form-check-input') 
-    el.setAttribute('label', label)
 
-    document.querySelector('#display').append(el)
+    let labelEl = document.createElement('label')
+    labelEl.setAttribute('for', label)
+    labelEl.setAttribute('class', 'form-check-label')
+    labelEl.textContent = label
+  
+    let container = document.createElement('div')
+    container.setAttribute('class', 'form-check mt-2')
+    container.append(el, labelEl)
+  
+    document.querySelector('#display').append(container)
+  
+  
+}
+
+const appendCheckbox = (label = "No label") => {
+  let el = document.createElement('input')
+
+  el.setAttribute('type', 'checkbox')
+  el.setAttribute('id', label)
+  el.setAttribute('class', 'form-check-input')
+
+  let labelEl = document.createElement('label')
+  labelEl.setAttribute('for', label)
+  labelEl.setAttribute('class', 'form-check-label')
+  labelEl.textContent = label
+
+  let container = document.createElement('div')
+  container.setAttribute('class', 'form-check mt-2')
+  container.append(el, labelEl)
+
+  document.querySelector('#display').append(container)
+}
+
+const removeInsert = () => {
+  const insertedEl = document.querySelector('#display > *:last-child');
+    if (insertedEl){
+    insertedEl.remove();
+    }
 }
