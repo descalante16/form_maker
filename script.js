@@ -75,7 +75,7 @@ const appendCheckbox = (label = "No label") => {
   document.querySelector('#display').append(container)
 }
 
-const removeInsert = () => {
+const removeEl= () => {
   const insertedEl = document.querySelector('#display > *:last-child');
     if (insertedEl){
     insertedEl.remove();
